@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Some ideas</title>
+        <script type="text/javascript">var cocositeowner="motiejus";</script>
+    </head>
+    <body>
+        <div class="head">DISCLAIMER: This page is just a source of information you could think up on your own. Use the content as a grown-up person - at your own risk.</div>
+        <div class="record">
+            <hr/>
+            <h3>Ad-hoc switching between keyboard layouts</h3>
+            When:
+            <ul>
+                <li>GNOME or something else does not allow you to switch keyboard layout in Xorg.conf (or udev) way</li>
+                <li>You have 2 or more different keyboard layouts</li>
+            </ul>
+            Insert to some keyboard shortcut:
+            <pre>
+            setxkbmap -print | perl -ne 'print $1 eq "lt" ? "us" : "lt" if $_ =~ /\+(lt|us)\+/' | xargs setxkbmap
+            </pre>
+        </div>
+
+        <div class="record">
+            <hr/>
+            <h3>Auto log-in on startup using KeyCom services</h3>
+            I live in <a href="http://www.gla.ac.uk/undergraduate/accommodation/self-cateredaccommodation/muranostreetstudentvillage/">Murano Street Student Village (MSSV)</a>.
+            Internet is great here, but, unfortunately, there is one annoying thing: every time you turn on your computer, in order to have internet, you have to:
+            <ul>
+                <li>Open up your browser</li>
+                <li>Take your mouse (or move a finger to touchpad)</li>
+                <li>Aim to the "log in" button</li>
+                <li>Press the button</li>
+            </ul>
+            It's too much for me.<br/>
+            This is how to avoid it:<br/>
+            Create an executable script in /etc/network/if-up.d/ (or something like that) with contents like this:
+            <pre>
+#!/bin/sh
+USERNAME="your_username" # urlencoded
+PASSWORD="your_password" # urlencoded
+if [ "$IP4_NAMESERVERS" = "109.246.240.1" ]; then
+    curl http://login.keycom.co.uk:8080/goform/HtmlLoginRequest -d"login=Sign%20in&amp;password=${PASSWORD}&amp;username=${USERNAME}" 2&gt;&amp;1 | logger
+fi
+            </pre>
+            If it doesn't work, check your DNS server and adjust the script. See /var/log/messages for more information.<br/>
+            <br/>
+        </div>
+        <div style="font-size: 0.8em">
+            Added: 2010-09-17 03:45<br/>
+            Last updated: 2010-09-18 17:46
+        </div>
+        <hr/>
+        <footer style="font-size: 0.8em;">
+            <img style="width: 10px; height: 10px" src="http://xystus54g.com/assets/images/Copyleft.png" alt="Copyleft" />
+            Motiejus Jakštys. <a href="http://sam.zoy.org/wtfpl/COPYING" title="License">No rights reserved.</a>
+        </footer>
+    </body>
+</html>

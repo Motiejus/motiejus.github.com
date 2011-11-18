@@ -1,0 +1,124 @@
+/*   
+Theme Name: def_mo
+Description: An advanced Motiejus' basic theme
+Template: default
+*/
+@import url(../default/style.css);
+
+.aside input { width: 250px; }
+
+div#whereami { font-style: normal; }
+div#whereami img {
+    margin: 5px;
+    display: block;
+    float: left;
+}
+div#whereami div.place { float: left; }
+div#whereami span.town { font-weight: bolder; }
+div#whereami span.country { font-weight: normal; }
+div#whereami div.date { color: gray; }
+
+
+/* style the tabs in IE (the trailing comma prevents other browsers from reading this) */
+#tabbar li, #tabbar ul li, {
+    
+    /* make them horizontal in IE*/
+    display: inline;
+    
+    /* space them a little in IE*/
+    margin: 0 5px;
+}
+
+/* style the tabs */
+.tab, .tabselected {
+    
+    /* make them horizontal in Firefox 2*/
+    display: -moz-inline-box;
+    
+    /* make them horizontal in all other browsers*/
+    display: inline-block;
+    
+    /* space them a little */
+    padding: 5px;
+    
+    font-size: 1.3em;
+    /* set a grey background for non-selected tabs (which we will overide for selected tabs later) */
+    background-color: rgb(240,240,240);
+    
+    /* set a border, make it rounded at the top */
+    border: 1px solid rgb(150,150,150);
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -khtml-border-radius-top-left: 5px;
+    -khtml-border-radius-top-right: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+}
+
+/* make changes to the selected tab */
+.tabselected {
+    
+    /* set a white background */
+    background-color: white;
+    
+    /* make the border along the bottom blend into the white background */
+    border-bottom-color: white;
+}
+
+/* style the drop down menus */
+.dmenu {
+    /* left align the text */
+    text-align: left;
+    
+    /* REQUIRED */
+    position: absolute;
+    
+    /* js fade method should display them 23px below the top of the tabs */
+    margin: 23px 0 0 0;
+    
+    /* put some space around the contents */
+    padding: 5px 15px;
+    
+    /* set a grey background */
+    background-color: rgb(240,240,240);
+    
+    /* set a border, round all the corners except the top left */
+    border: 1px solid rgb(150,150,150);
+    -moz-border-radius: 5px;
+    -moz-border-radius-topleft: 0;
+    -khtml-border-radius: 5px;
+    -khtml-border-radius-top-left: 0;
+    -webkit-border-radius: 5px;
+    -webkit-border-top-left-radius: 0;
+}
+#tabbar .dmenu ul {
+    
+    /* put space at the top and bottom of top-level menus */
+    padding: 5px 0 0 10px;
+    
+    /* stop ie going crazy */
+    margin: 0;
+    
+}
+#tabbar .dmenu ul li {
+    
+    /* stop ie from displaying list items inline */
+    display: list-item;
+    
+}
+
+/* REQUIRED: hide menus off screen by default */
+.dmenu {
+    left: -999em;
+}
+
+/* STYLING JUST FOR CSS MENUS */
+#tabbar .fademenu .dmenu {
+    
+    /* position menus correctly */
+    margin: 5px 0 0 -6px;
+}
+/* REQUIRED: show menus on hovering */
+#tabbar .fademenu:hover .dmenu {
+    left: auto;
+}
