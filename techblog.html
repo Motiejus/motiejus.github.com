@@ -18,9 +18,10 @@
       for Embedded Systems 3 course. However, one evening I started
       investigation, and installed WikiDroyd successfully. How:
       <ul>
+        <li>Upgrade Nook Touch to 1.1
         <li>TouchNooter 1.11.20 [<a href="http://forum.xda-developers.com/showthread.php?t=1343143">Link</a>].</li>
         <li>Replace boot loader with wifi one, so you can access ADB [<a href="http://nookdevs.com/NookTouch_Rooting">Link</a>].</li>
-        <li>AppMarket does not seem to work. So download and install wikidroyd [<a href="http://slideme.org/application/wikidroyd">Link</a>]. Version 1.4.10 worked for me.</li>
+        <li>AppMarket does not seem to work. So download and install wikidroyd manually [<a href="http://slideme.org/application/wikidroyd">Link</a>]. Version 1.4.10 worked for me.</li>
         <li>Create the following file structure in /sdcard:
 <pre>
 / # find /sdcard/WikiDroyd
@@ -80,6 +81,7 @@ zh.whole.wikidroyd,1289257200,510788608,3209de683ed79bb15aca6d7ab4f3b19a,http://
 
       How to change font size without crashing the app for ever is left as an easy exercise for the reader. Hint: you might want <a href="http://nookdevs.com/Busybox">busybox</a>. :)
 
+      <div style="font-size: 0.8em">Added: 2012-01-11 00:09+0000</div>
     </div>
 
     <div class="record">
@@ -94,6 +96,7 @@ zh.whole.wikidroyd,1289257200,510788608,3209de683ed79bb15aca6d7ab4f3b19a,http://
       <pre>
       setxkbmap -print | perl -ne 'print $1 eq "lt" ? "us" : "lt" if $_ =~ /\+(lt|us)\+/' | xargs setxkbmap
       </pre>
+      <div style="font-size: 0.8em">Added: 2010-09-18 17:46+0001</div>
     </div>
 
     <div class="record">
@@ -122,8 +125,8 @@ fi
       <br/>
     </div>
     <div style="font-size: 0.8em">
-      Added: 2010-09-17 03:45<br/>
-      Last updated: 2010-09-18 17:46
+      Added: 2010-09-17 03:45+0001<br/>
+      Last updated: 2012-01-11 00:09+0000
     </div>
     <hr/>
     <footer style="font-size: 0.8em;">
