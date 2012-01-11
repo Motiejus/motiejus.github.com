@@ -96,7 +96,31 @@ zh.whole.wikidroyd,1289257200,510788608,3209de683ed79bb15aca6d7ab4f3b19a,http://
       <pre>
       setxkbmap -print | perl -ne 'print $1 eq "lt" ? "us" : "lt" if $_ =~ /\+(lt|us)\+/' | xargs setxkbmap
       </pre>
-      <div style="font-size: 0.8em">Added: 2010-09-18 17:46+0001</div>
+
+      Oh, and this helps on Debian based systems (tested on squeeze):
+<pre>
+$ cat /etc/default/keyboard 
+# Check /usr/share/doc/keyboard-configuration/README.Debian for
+# documentation on what to do after having modified this file.
+
+# The following variables describe your keyboard and can have the same
+# values as the XkbModel, XkbLayout, XkbVariant and XkbOptions options
+# in /etc/X11/xorg.conf.
+
+XKBMODEL="pc105"
+XKBLAYOUT="lt,lt"
+XKBVARIANT="us,"
+XKBOPTIONS="grp:alt_shift_toggle,grp_led:scroll"
+
+# If you don't want to use the XKB layout on the console, you can
+# specify an alternative keymap.  Make sure it will be accessible
+# before /usr is mounted.
+# KMAP=/etc/console-setup/defkeymap.kmap.gz
+</pre>
+
+      <div style="font-size: 0.8em">Added: 2010-09-18 17:46+0001<p/>
+        Added /etc/default/keyboard: 2012-11-01 00:19+0000
+      </div>
     </div>
 
     <div class="record">
@@ -126,7 +150,7 @@ fi
     </div>
     <div style="font-size: 0.8em">
       Added: 2010-09-17 03:45+0001<br/>
-      Last updated: 2012-01-11 00:09+0000
+      Last updated: 2012-01-11 00:19+0000
     </div>
     <hr/>
     <footer style="font-size: 0.8em;">
