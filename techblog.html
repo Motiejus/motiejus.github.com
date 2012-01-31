@@ -10,6 +10,21 @@
 
     <div class="record">
       <hr/>
+      <h3>Do not listen RADVD on certain interfaces</h3>
+
+      University of Glasgow Computing Science department broadcasts broken ipv6
+      default route to LAN.  Since the host has a correct ipv6 address and
+      route acquired from OpenVPN server, disabling listening of radvd requests
+      on eth0 is needed.<p/>
+
+      Easiest solution that works is using ip6tables:<br/>
+      <pre>ip6tables -A INPUT -d ff02::1/128 -i eth0 -p ipv6-icmp -j DROP</pre>
+      <a href="http://comments.gmane.org/gmane.comp.security.firewalls.netfilter.general/37227" rel="nofollow">Reference</a><p/>
+      <div style="font-size: 0.8em">Added: 2012-01-31 19:28+0000</div>
+    </div>
+
+    <div class="record">
+      <hr/>
       <h3>Installing WikiDroid on Nook Touch</h3>
       Update 2012-01-12: android market started working the other day, so package manual download is not necessary anymore.<p/>
       Motivation:<br/>
