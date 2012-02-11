@@ -1,6 +1,7 @@
 ---
 layout: post
 date: 2010-09-17T03:45:00+01:00
+title: Auto login using keycom
 ---
 
 I live in Murano Street Student Village (MSSV). Internet is great here, but,

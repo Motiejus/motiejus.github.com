@@ -2,5 +2,6 @@
 layout: base
 ---
 
+<h3><a href="/">{{ page.title }}</a></h3>
 {{ content }}
-<hr/>
+<div style="font-size: 0.8em">Added: {{ page.date | date: "%Y-%m-%d %H:%M:%S%z" }}</div>
