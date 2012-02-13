@@ -3,3 +3,7 @@
   max-width: 700px;
   margin: 0 auto;
 }
+
+pre { margin: 0; }
+table td { padding: 1px; }
+table th { font-size: 0.9em; }
