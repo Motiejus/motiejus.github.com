@@ -1,0 +1,30 @@
+---
+---
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+  <title>Motiejus techblog</title>
+  <link href="http://m.jakstys.lt/tech/"/>
+  <link type="application/atom+xml" rel="self" href="http://m.jakstys.lt/tech/atom.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>http://m.jakstys.lt/tech/</id>
+  <author>
+    <name>Motiejus Jakštys</name>
+    <email></email>
+  </author>
+
+  {% for post in site.posts %}
+  <entry>
+    <id>http://m.jakstys.lt/{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="http://m.jakstys.lt{{ post.url }}"/>
+    <title>{{ post.title }}</title>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <author>
+      <name>Motiejus Jakštys</name>
+      <uri>http://m.jakstys.lt/</uri>
+    </author>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+ 
+</feed>
