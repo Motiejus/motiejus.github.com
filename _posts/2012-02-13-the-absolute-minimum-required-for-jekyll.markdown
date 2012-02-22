@@ -6,10 +6,10 @@ title: The absolute minimum to bootstrap Jekyll
 
 ### Motivation
 
-So I wanted a Jekyll blog, and I wanted to bootstrap quickly. While [Jekyll
-Bootstrap](http://jekyllbootstrap.com/) fits for most, I am more like an
-LFS-guy. Do things in small steps from the start understanding what is going
-on.
+So I wanted a Jekyll powered note engine, and I wanted to bootstrap quickly.
+While [Jekyll Bootstrap](http://jekyllbootstrap.com/) fits for most, I am more
+like an LFS-guy. Do things in small steps from the start understanding what is
+going on.
 
 I assume you have read the [introduction] and know *what* Jekyll is. This post
 will help you to bootstrap the bare minimal system.
