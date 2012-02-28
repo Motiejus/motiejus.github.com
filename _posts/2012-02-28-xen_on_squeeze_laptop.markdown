@@ -72,4 +72,4 @@ Well.. quick googling found [this][2]. I do not want to upgrade to xen-4.1 [why 
 [config]: http://blog.penumbra.be/2010/02/xen-libvirt-debian-lenny/
 [2]: http://lists.fedoraproject.org/pipermail/xen/2011-February/005369.html
 [3]: http://lists.debian.org/debian-devel/2012/02/msg00159.html
-[bugreport] http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=644573
+[bugreport]: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=644573
