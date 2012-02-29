@@ -1,0 +1,31 @@
+---
+layout: post
+date: 2012-02-29T14:56:00+00:00
+title: Xen on Squeeze via libvirt, part 2
+---
+
+This is the continued attempt to run Xen-4 on squeeze via libvirt. Why libvirt?
+Because if we manage to stick to it, we will have an awesome interface in the
+future when we want to interfere with our hypervisors/VMs.
+
+virt-install failed to do a very standard installation. One of the gotchas:
+`xen-utils-common/squeeze` is inconsistent:
+
+`/etc/xen/scripts/network-route` calls `hotplugpath.sh`, which exists only in
+`xen-utils-common/sid`. Which, [according to my suspisions][suspisions], assumes Xen-4.1.
+
+I did not dig really deeply into this, because [it is not worth
+it][xen_networking]. Xen-4.1 (which is in `testing`) has a different approach
+to configure networking. As well as many things like `xl` instead of `xm`.
+
+Installing `xen-hypervisor-4.1/testing` offers to switch the whole system to
+`testing`. Not an option. We do not want to use Ubuntu, right? So I continue my
+efforts to backport Xen-4.1 to `testing`.
+
+What next?
+----------
+
+Port Xen-4.1 with the whole userspace to stable.
+
+[xen_networking]: http://wiki.xen.org/xenwiki/HostConfiguration/Networking
+[suspisions]: http://lists.fedoraproject.org/pipermail/xen/2011-February/005369.html
