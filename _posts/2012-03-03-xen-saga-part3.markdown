@@ -39,4 +39,22 @@ Same story with Xen-4.0. Neither solution, nor workaround. Further steps:
 2. Use native Xen utils without libvirt for testing
 3. Ping Xen mailing list
 
+Update 2012-03-04 00:17:
+
+Xen in chroot yields exactly the same result. However, quick run of
+xen-create-image (from xen-utils) yields a promising result. My suspision is
+Xen isn't really libvirt friendly.
+
+Part 4 will be about xen-utils.
+
+P.S. initial KVM setup with Ubuntu Lucid took around 2 hours including:
+
+* Server installation
+* First virtual machine installation (virt-install) to an lvm volume
+* Simple networking configuration
+
+All using libvirt, around 6 moths ago. Xen apparently needs a bit more fight,
+at least with *deb-based. I suppose it would be less hassle with
+CentOS/RHEL/Fedora; Citrix XenServer RHEL based, anyway.
+
 [bugreport]: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=644573
