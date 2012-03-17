@@ -54,7 +54,7 @@ P.S. initial KVM setup with Ubuntu Lucid took around 2 hours including:
 * Simple networking configuration
 
 All using libvirt, around 6 moths ago. Xen apparently needs a bit more fight,
-at least with *deb-based. I suppose it would be less hassle with
+at least with \*deb-based. I suppose it would be less hassle with
 CentOS/RHEL/Fedora; Citrix XenServer RHEL based, anyway.
 
 [bugreport]: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=644573
