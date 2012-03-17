@@ -28,7 +28,7 @@ Here is a work-around:
             handler.getCalendarDates().calendarDatesRolloutOOLDates(_serviceCode);
         }
 
-Then you will need a lot of RAM (for Glasgow busses 208 GB is not enough). To
+Then you will need a lot of RAM (for Glasgow buses 208 GB is not enough). To
 tackle this, change all dates that are more than 5 years after now to whatever
 is now + 2. The problem is that some bus timetables are valid until 2099-12-31,
 which explains why it takes so much memory.
@@ -66,6 +66,6 @@ sed -i '1s/.*/stop_id,stop_name,stop_desc,stop_lon,stop_lat,zone_id,stop_url/' s
 sed -i '/0000SPT[0-9]/d' stop_times.txt
 {% endhighlight %}
 
-And now you have a google_transit.zip which can be fed to Open Trip Planner! Enjoy!
+And now you have a `google_transit.zip` which can be fed to Open Trip Planner! Enjoy!
 
 [1]: http://nptdr.dft.gov.uk/October-2011/Single%20Zips/NaPTANcsv.zip
