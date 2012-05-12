@@ -13,8 +13,8 @@ which are sent by leecher/seeder to tracker:
         The total amount downloaded so far, encoded in base ten ascii.
 
 Reminds me freedom of `RCPT FROM:` in SMTP (or `Caller-Id:` header in SIP) in a
-suitable context and sloppy operators. :-) I promise you a beer for a patch in
-libtorrent which (configurably) exploits this value. Put it on github and write
-me. :-)
+suitable context and sloppy operators. :-) I promise a beer for the first who
+creates a patch in libtorrent which (configurably) exploits this value. Put it
+on github and write me. :-)
 
 [specifications]: http://www.bittorrent.org/beps/bep_0003.html
