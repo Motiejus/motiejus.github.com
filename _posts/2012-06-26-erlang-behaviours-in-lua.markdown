@@ -55,8 +55,8 @@ You will be able to start and call this gen_server normally:
 {% highlight erlang %}
 {ok, BeerServer} = gen_server:start_link(beer_server, [1], []),
 <<"ok">> = gen_server:call(BeerServer, minus_one_bottle),
-<<"out_of_bottles">> = gen_server:call(BeerServer, minus_one_bottle)...
-
+<<"out_of_bottles">> = gen_server:call(BeerServer, minus_one_bottle),
+...
 {% endhighlight %}
 
 Types Erlang->Lua
@@ -90,10 +90,11 @@ Then the previous example would look like:
 {% highlight erlang %}
 {ok, BeerServer} = gen_server:start_link(beer_server, [1], []),
 ok = gen_server:call(BeerServer, minus_one_bottle),
-out_of_bottles = gen_server:call(BeerServer, minus_one_bottle)...
+out_of_bottles = gen_server:call(BeerServer, minus_one_bottle),
+...
 {% endhighlight %}
 
-Note the return values are `atom`s now.
+Note the return values are of type `atom` now.
 
 Benefits
 --------
