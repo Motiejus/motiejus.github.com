@@ -53,7 +53,8 @@ end
 You will be able to start and call this gen_server normally:
 
 {% highlight erlang %}
-{ok, BeerServer} = gen_server:start_link(beer_server, [100], []),
+{ok, BeerServer} = gen_server:start_link(beer_server, [1], []),
+<<"ok">> = gen_server:call(BeerServer, minus_one_bottle),
 <<"out_of_bottles">> = gen_server:call(BeerServer, minus_one_bottle)...
 
 {% endhighlight %}
@@ -87,9 +88,12 @@ For example, if `handle_call/3` was defined this way:
 
 Then the previous example would look like:
 {% highlight erlang %}
-{ok, BeerServer} = gen_server:start_link(beer_server, [100], []),
+{ok, BeerServer} = gen_server:start_link(beer_server, [1], []),
+ok = gen_server:call(BeerServer, minus_one_bottle),
 out_of_bottles = gen_server:call(BeerServer, minus_one_bottle)...
 {% endhighlight %}
+
+Note the return values are `atom`s now.
 
 Benefits
 --------
