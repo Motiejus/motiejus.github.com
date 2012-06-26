@@ -99,6 +99,24 @@ Benefits
 * The whole thing will be _fast_ (via BIFs, so there will be no OS context
   switches).
 
+Facts
+-----
+
+You will be able to write wrappers yourself instead of doing `parse_transform`s
+all over the place, if you want more control for certain methods. Something
+like this:
+
+{% highlight erlang %}
+init(Bottles) ->
+    lua:call('beer_server.lua', Bottles, ?TYPES());
+{% endhighlight %}
+Or even more control:
+{% highlight erlang %}
+init(Bottles) ->
+    lua:call('beer_server.lua', Bottles,
+        "{reply, ok | out_of_bottles, term()}");
+{% endhighlight %}
+
 Stay tuned.
 
 [Sheriff]: https://github.com/extend/sheriff
