@@ -108,12 +108,12 @@ like this:
 
 {% highlight erlang %}
 init(Bottles) ->
-    lua:call('beer_server.lua', Bottles, ?TYPES());
+    lua:call('beer_server.lua', [Bottles], ?TYPES());
 {% endhighlight %}
 Or even more control:
 {% highlight erlang %}
 init(Bottles) ->
-    lua:call('beer_server.lua', Bottles,
+    lua:call('beer_server.lua', [Bottles],
         "{reply, ok | out_of_bottles, term()}");
 {% endhighlight %}
 
