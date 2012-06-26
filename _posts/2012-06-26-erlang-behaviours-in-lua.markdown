@@ -37,14 +37,15 @@ function init(Bottles)
     return {"ok", {bottles=Bottles}}
 end
 
-function handle_call(Bottles, Request, State)
-    if request == "minus_one_bottle"
+function handle_call(Request, From, State)
+    if Request == "minus_one_bottle"
         if State.bottles > 0
             State.bottles = State.bottles - 1
-            return {"reply", "ok", State}
+        else
+            return {"reply", "out_of_bottles", State}
         end
-        return {"reply", "out_of_bottles", State}
     end
+    return {"reply", "ok", State}
 end
 
 ...
@@ -83,7 +84,7 @@ For example, if `handle_call/3` was defined this way:
 
 {% highlight erlang %}
 -callback handle_call(Request :: term(), {pid(), term()}, State :: term()) ->
-    {reply, Reply :: ok | out_of_bottles, NewState :: term()}
+    {reply, ok | out_of_bottles, NewState :: term()}
 {% endhighlight %}
 
 Then the previous example would look like:
