@@ -50,12 +50,12 @@ end
 ...
 {% endhighlight %}
 
-You will be able to start and call this gen_server normally:
+You will be able to start and call this gen_server like any other gen_server:
 
 {% highlight erlang %}
-{ok, BeerServer} = gen_server:start_link(beer_server, [1], []),
-<<"ok">> = gen_server:call(BeerServer, minus_one_bottle),
-<<"out_of_bottles">> = gen_server:call(BeerServer, minus_one_bottle),
+{ok, Pid} = gen_server:start_link(beer_server_lua, [1], []),
+<<"ok">> = gen_server:call(Pid, minus_one_bottle),
+<<"out_of_bottles">> = gen_server:call(Pid, minus_one_bottle),
 ...
 {% endhighlight %}
 
@@ -88,9 +88,9 @@ For example, if `handle_call/3` was defined this way:
 
 Then the previous example would look like:
 {% highlight erlang %}
-{ok, BeerServer} = gen_server:start_link(beer_server, [1], []),
-ok = gen_server:call(BeerServer, minus_one_bottle),
-out_of_bottles = gen_server:call(BeerServer, minus_one_bottle),
+{ok, Pid} = gen_server:start_link(beer_server_lua, [1], []),
+ok = gen_server:call(Pid, minus_one_bottle),
+out_of_bottles = gen_server:call(Pid, minus_one_bottle),
 ...
 {% endhighlight %}
 
