@@ -21,7 +21,7 @@ will look like. Example implements a server in the most familiar behaviour -
 
 `beer_server_lua.erl`:
 
-{% highlight Erlang %}
+{% highlight erlang %}
 -behaviour(gen_server).
 -compile({parse_transform, implemented_in_lua}).
 -backing_module('beer_server.lua').
@@ -30,8 +30,6 @@ will look like. Example implements a server in the most familiar behaviour -
 `implemented_in_lua.erl` will on compile time create all `init/1`,
 `handle_call/3`, etc. These functions will just be wrappers to lua interface to
 `backing_module`.
-
-Lua part example:
 
 `beer_server.lua`:
 {% highlight lua %}
@@ -52,7 +50,7 @@ end
 ...
 {% endhighlight %}
 
-You will be able to start and call the gen_server as like any other one:
+You will be able to start and call this gen_server normally:
 
 {% highlight erlang %}
 {ok, BeerServer} = gen_server:start_link(beer_server, [100], []),
@@ -63,14 +61,14 @@ You will be able to start and call the gen_server as like any other one:
 Types Erlang->Lua
 -----------------
 
-Erlang implements a super-set of Lua types, so conversion is easy. Terms from
-Erlang to Lua will be converted according to these rules:
+Erlang types supersets Lua types, so conversion is easy. Terms from Erlang to
+Lua will be converted according to these rules:
 
 <table>
 <tr><th>Erlang</th><th>Lua</th></tr>
-<tr><td>`atom`, `binary`</td><td>`string`</td></tr>
-<tr><td>`number`</td><td>`number`</td></tr>
-<tr><td>`tuple`, `list`</td><td>number-indexed table</td></tr>
+<tr><td>atom, binary</td><td>string</td></tr>
+<tr><td>number</td><td>number</td></tr>
+<tr><td>tuple, list</td><td>number-indexed table</td></tr>
 </table>
 
 Types Lua->Erlang
@@ -98,7 +96,7 @@ Benefits
 
 * Implement any behaviour in Lua with only 3 lines of boilerplate Erlang code.
 * Make people who don't do middleware happy.
-* The whole thing will be _fast_ (via BIFs, so there will be 0 OS context
+* The whole thing will be _fast_ (via BIFs, so there will be no OS context
   switches).
 
 Stay tuned.
