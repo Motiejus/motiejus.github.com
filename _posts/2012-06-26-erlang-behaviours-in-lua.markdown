@@ -102,8 +102,8 @@ Benefits
 
 * **Implement any behaviour** in Lua with only 3 lines of Erlang boilerplate.
 * Make people who don't do middleware happy.
-* The whole thing will be _fast_ (via BIFs, so there will be no OS context
-  switches).
+* The whole thing will be _fast_ (via port driver, so there will be no OS
+  context switches).
 
 Facts
 -----
