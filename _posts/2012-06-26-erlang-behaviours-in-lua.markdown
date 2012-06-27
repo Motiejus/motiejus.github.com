@@ -100,7 +100,7 @@ Note the return values are of type `atom` now.
 Benefits
 --------
 
-* Implement any behaviour in Lua with only 3 lines of boilerplate Erlang code.
+* **Implement any behaviour** in Lua with only 3 lines of Erlang boilerplate.
 * Make people who don't do middleware happy.
 * The whole thing will be _fast_ (via BIFs, so there will be no OS context
   switches).
