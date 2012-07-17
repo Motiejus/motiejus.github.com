@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2012-01-12T17:45:00+00:00
+date: 2012-07-18T00:15:00+30:00
 title: ErlMPC fine tuning in Spil Jam 
 ---
 
