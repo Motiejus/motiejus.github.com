@@ -23,7 +23,5 @@ will send a bunch of messages to linked-in driver). But talking about speed..
 Is it useful? Probably not. Fun? Oh yes, don't tell me. Not sure if I will
 implement this soon (or will).. But this freaks me out.
 
-[_Winter is coming..._](http://google.com/ "Uhm, interview")
-
 [promised]: /tech/2012/06/erlang-behaviours-in-lua
 [announcement]: http://erlang.org/pipermail/erlang-questions/2012-July/068244.html
