@@ -5,14 +5,14 @@ title: Erlualib, freaking out
 ---
 
 As [promised], [I implemented][announcement] a way to implement arbitrary
-behaviours in Lua.
+Erlang behaviours in Lua.
 
 So why don't we do erlualerlng?
 
 {% highlight lua %}
-function start_server(Args)
-    Server = erlang.atom("beer_server")
-    "ok", Pid = gen_server:start_link(Server, {"bottles" : 99}, {})
+function start_counting_bottles(Initially)
+    Server = erlang:list_to_atom("beer_server")
+    "ok", Pid = gen_server:start_link(Server, {"bottles" : Initially}, {})
     BottlesLeft = gen_server:call(Pid, "minus_one_bottle")
 end
 {% endhighlight %}
