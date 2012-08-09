@@ -17,12 +17,12 @@ function start_server(Args)
 end
 {% endhighlight %}
 
-This is possible. And with not-so-much C. It will be slow (every call-to-erlang
-will send a bunch of messages to linked-in driver). But talking about speed..
-~10µs/call is not _that_ awful.
+This is possible, and with not-so-much C. It will be slower, of course (every
+call-to-erlang will exchange a couple of messages with linked-in driver). But
+talking about speed.. ~10-15µs/call is not _that_ awful.
 
-Is it useful? Probably not. Fun? Oh yes, don't tell me. Not sure if I will
-implement this soon (or will).. But this freaks me out.
+Is it useful? Probably not. Fun? Oh, yes. Not sure if I will implement this
+soon (or will).. But this freaks me out.
 
 [promised]: /tech/2012/06/erlang-behaviours-in-lua
 [announcement]: http://erlang.org/pipermail/erlang-questions/2012-July/068244.html
