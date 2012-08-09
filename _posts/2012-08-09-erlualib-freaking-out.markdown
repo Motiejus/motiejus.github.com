@@ -12,8 +12,9 @@ So why don't we do erlualerlng?
 {% highlight lua %}
 function start_server(Args)
     Server = erlang.atom("beer_server")
-    Pid = gen_server:start_link(Server, {"bottles" : 99}, {})
+    "ok", Pid = gen_server:start_link(Server, {"bottles" : 99}, {})
     BottlesLeft = gen_server:call(Pid, "minus_one_bottle")
+end
 {% endhighlight %}
 
 This is possible. And with not-so-much C. It will be slow (every call-to-erlang
