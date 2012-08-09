@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2012-08-09T00:59:30+00:00
-title: Erlualib -- freaking out
+title: Erlualib, freaking out
 ---
 
 As [promised], [I implemented][announcement] a way to implement arbitrary
