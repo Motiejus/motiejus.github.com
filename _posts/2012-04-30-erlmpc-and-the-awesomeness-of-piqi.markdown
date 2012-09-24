@@ -52,15 +52,16 @@ Before writing my DDL I was looking for something what is already there.
 Erlangers suggested piqi. I looked at it, liked it, but somehow thought that it
 needs OCaml at run-time. I thought: "an Erlang port running alongside just to
 (de)serialize our stuff? Operations will get infinitely more complicated, so
-this will never happen". This is how piqi was crossed out.
+this will never happen". This is how piqi was crossed out. After around a year
+I realized that was wrong decision.
 
 However, when I was at the Dutch guys, they were amazed about piqi. For
 whatever unknown reason. So I thought to try it out myself.
 
-Here is the gist of this post: _piqi does not require OCaml at run-time. In
-fact, plain Erlang is sufficient_. I will make an effort to get this this
-explicitly included into erlang-piqi documentation. I think, this gist could
-have saved me a lot of time.
+Although_piqi does require OCaml binary running at run-time, it is really
+transparent and efficient, and should not bother you at all. It is an external
+program communicating to Erlang via port driver. Not bad. Honestly, I learned
+that it uses something more than Erlang at run-time only months after using it.
 
 A bit about piqi
 ---
