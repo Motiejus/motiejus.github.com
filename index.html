@@ -1,108 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>..:: Motiejus Jakštys ::..</title>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="description" content="Personal_Home_Page: CV, blog, and telephone number." />
-        <meta name="keywords" content="Motiejus Jakštys, Jakštys, Motiejus Jakstys, Jakstys, Rita Žiauberytė, Rita Ziauberyte, travel, kelionės, blog, weblog" />
-        <!-- Sorry, Rita ;) keyword above will be removed as soon as this website is first -->
-        <link rel="canonical" href="http://m.jakstys.lt/" />
-        <style type="text/css">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description"
+      content="I create elegant software to solve difficult problems" />
+    <meta name="keywords" content="Motiejus Jakštys, elegant software" />
+    <title>Motiejus Jakštys home page</title>
+    <style type="text/css">
+      div#main { padding: 50px; }
+      div,ul {
+        font-family: "Ubuntu", Tahoma, sans-serif;
+        color: #321900;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <h1>Motiejus Jakštys</h1>
+      <p>I create elegant software to solve difficult problems.</p>
+      <ul>
+        <li><a href="https://github.com/Motiejus">GitHub</a></li>
+        <li>
+        <a href="http://www.linkedin.com/pub/motiejus-jak%C5%A1tys/19/26b/4a7">
+          LinkedIn
+        </a>
+        </li>
+        <li><a href="MotiejusJakstys80.pdf">Business card</a></li>
+      </ul>
+    </div>
 
-            body,img,div,p,br,table,td,tr,ul,ol,li { 
-                padding: 0; margin: 0; border: 0;
-                background-color: rgb(66, 87, 72);
-                font-family: Verdana, Tahoma, Helvetica, sans-serif;
-                font-size: 15px;
-            }
-            a,a:visited, a:hover, body,img,div,p,br,table,td,tr,ul,ol,li { color: rgb(241, 231, 240); }
-            a, a:visited { text-decoration: none; }
-
-            /* Workaround for MS IE 5.5 and earlier */
-            /* We want to make div#wrapper to be in the middle */
-            a:hover { text-decoration: underline; }
-            h1 { font-size: 2em; font-family: "Courier", serif; }
-            /*  ----------------------------------
-                Greeting (header)
-                ----------------------------------
-            */
-            div#first { 
-                margin-top: 40px;
-                margin-bottom: 40px;
-                width: 80%;
-            }
-            .center { margin-left: auto; margin-right: auto; }
-            .tac { text-align: center; }
-            .tal { text-align: left; }
-
-            /*  ----------------------------------
-                Universal wrapper
-                ----------------------------------
-            */
-            ul#menu li, div.contents { border: 2px rgb(241, 231, 240) solid; padding: 10px; }
-
-            .orange, ul.orange li, ul#menu li  { background-color: rgb(171, 168, 43); }
-            .wrapped { border: 2px rgb(241, 231, 240) dashed; padding: 30px; width: 40%; }
-
-            /*  ----------------------------------
-                Menu of links
-                ----------------------------------
-            */
-            ul#menu, ul#cv_data { list-style-type: none; }
-            ul#menu li { margin-top: 30px; font-size: 1.2em; }
-            li.first { margin-top: 0 !important; }
-
-            /*  ----------------------------------
-                CV div (picture, list of stuff)
-                ----------------------------------
-            */
-            img#mo_face { margin-right: 10px; border: 1px rgb(241, 231, 240) solid; }
-            ul#cv_data li { margin-left: 20px; margin-top: 8px; }
-            img#email { position: relative; top: 3px; }
-
-        </style>
-    </head>
-    <body class="tac">
-        <div id="centeredwrapper" class="tac center" style="width: 80%">
-            <div id="first" class="orange tac center contents">
-                <h1>Motiejus Jakštys</h1>
-            </div>
-            <div class="wrapped" style="float: left">
-                <!--<div style="position: relative; top: -4px; left: 20px">Blah</div>-->
-                <div class="tal orange contents">
-                    <div class="tac orange" style="font-size: 0.5em">PGP 4096R: D59D B7BD 5C57 15F8 591E  FCA4 DB3E 76B7 A88A 5E2F</div>
-                    <div class="orange" style="float: left"> <!-- Place for a picture in left -->
-                        <a href="motiejus.jpg"><img id="mo_face" src="mo_face.jpg" alt="Motiejus face" /></a>
-                    </div>
-                    <ul class="orange" id="cv_data">
-                        <li class="first"><strong style="font-size: 1.1em">Motiejus Jakštys</strong></li>
-                        <li>September 19'th, 1989</li>
-                        <li>+370 629 51392, +44 740 3592482</li>
-                        <li>e-mail: <img src="my_email.png" alt="E-mail" class="orange" id="email" /></li>
-                        <li>Skype: gg.mta</li>
-                    </ul>
-                    <div class="orange" style="clear: both"></div>
-
-                </div>
-            </div>
-            <div class="wrapped" style="float: right">
-                <ul class="center" id="menu">
-                    <li class="first"><a href="blog/">Tinklaraštis (travel weblog)</a></li>
-                    <li><a href="cv/motiejus_jakstys-cv-en.pdf">CV in english</a></li>
-                    <li><a href="https://github.com/Motiejus/" rel="nofollow me">Social network</a></li>
-                    <li class="last"><a href="/tech/">Notes</a></li>
-                </ul>
-            </div>
-        </div>
-        <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-            try{
-                var pageTracker = _gat._getTracker("UA-8888867-1");
-                pageTracker._trackPageview();
-            } catch(err) {}
-        </script>
-    </body>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ?
+          "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost +
+            "google-analytics.com/ga.js'" +
+            " type='text/javascript'%3E%3C/script%3E")
+          );
+    </script>
+    <script type="text/javascript">
+        try{
+            var pageTracker = _gat._getTracker("UA-8888867-1");
+            pageTracker._trackPageview();
+        } catch(err) {}
+    </script>
+  </body>
 </html>
