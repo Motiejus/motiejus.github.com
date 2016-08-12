@@ -1,2 +1,2 @@
-highlighter: true
+rouge: true
 permalink: /tech/:year/:month/:title
