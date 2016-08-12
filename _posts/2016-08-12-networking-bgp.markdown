@@ -87,7 +87,7 @@ Glossary:
 * ASN -- Autonomous Zone Number. 32-bit integer globally uniquely identifying
   the AS. ASNs between 64512 and 65535 are reserved for private use.
 * iBGP -- internal BGP. Usually used for internal traffic within AS.
-* eGBP -- external BGP. Used in Internet.
+* eBGP -- external BGP. Used in Internet.
 * CIDR ip block, e.g. 10.0.0.0/8, 192.168.0.1/24.
 
 Main differences between iBGP and eBGP:
@@ -123,9 +123,11 @@ As you can see, the router gossip connection and the advertised CIDRs are
 completely decoupled, thus allowing advertisement of overlay networks and
 further jazz.
 
-If anything's unclear, ping me, I'll try to explain on the whiteboard as best
-as I can. Remember, I just learned this myself about this 20 minutes ago, so
-exercise caution. [Cumulus networks is a good reading][2].
+Remember, I just learned this myself about this 20 minutes ago, so exercise
+caution. [Cumulus networks published a good reading on this][2].
+
+Hopefully next to learn: given a set of routes (say, you can reach a CIDR via
+leg A, B, C, D), how does the router choose where to send traffic through?
 
 Motiejus
 
