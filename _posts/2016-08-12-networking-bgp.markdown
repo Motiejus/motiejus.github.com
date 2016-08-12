@@ -30,24 +30,26 @@ address of the router, gets a reply, and constructs an IP packet like this:
 and rewrites the packet to:
 
     dst mac: mac of r2
-    dst ip: 10.0.2.100:80
+    dst ipport 10.0.2.100:80
     src mac: mac of r1
-    src ip: 10.0.1.100:60000
+    src ipport 10.0.1.100:60000
 
-`r2` receives the packet, notices that it's in it's local network, and rewrites the packet to:
+`r2` receives the packet, notices that it's in it's local network, and rewrites
+the packet to:
 
     dst mac: mac of h2
-    dst ip: 10.0.2.100:80
+    dst ipport 10.0.2.100:80
     src mac: mac of r2
-    src ip: 10.0.1.100:60000
+    src ipport 10.0.1.100:60000
 
-`h2` receives the packet! Note that src ip (and port, but omitted) is still there, so it can send a reply like this:
+`h2` receives the packet! Note that src ip (and port, but omitted) is still
+there, so it can send a reply like this:
 
-   dst mac: mac of r2 (the src mac of the first packet)
-   dst ip: 10.0.1.100:60000
+   dst mac: mac of r2
+   dst ipport 10.0.1.100:60000
    src mac: mac of h2
-   src ip: 10.0.2.100:80 (the src ipport of the first packet; the application is listening on h1 on that port)
-
+   src ipport 10.0.2.100:80
+   
 We are interested in configuration between r1 and r2. Both routers know they
 can reach each other directly though some kind of "eth5" (there is a static
 route). Things get a little more complex when there can be also r3, which is
