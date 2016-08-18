@@ -134,7 +134,7 @@ it:
 
     # Internal variables
 
-    {
+    _main() {
         trap _cleanup EXIT SIGTERM SIGINT
         _cleanup_tempfile=$(mktemp)
 
@@ -142,7 +142,9 @@ it:
 
         _cleanup
         trap - EXIT SIGTERM SIGINT
-    } 2>&1 | ts '[%H:%M:%S]'
+    }
+    
+    _main 2>&1 | ts '[%H:%M:%S]'
 
 `lib.sh`:
 
