@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2016-08-17T20:10:00+02:00
-title: My conventions in Bash scripts
+title: Some conventions for Bash scripts
 ---
 
 I am comfortable in bash scripts of up to few hundred LOC. This post should
