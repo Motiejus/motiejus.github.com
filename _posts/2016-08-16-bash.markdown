@@ -1,0 +1,165 @@
+---
+layout: post
+date: 2016-08-17T20:10:00+02:00
+title: My conventions in Bash scripts
+---
+
+I am comfortable in bash scripts of up to few hundred LOC. This post should
+help people reviewing my bash code, and possibly provide a few tips to help
+code be maintainable.
+
+Guidelines below would have saved me hours (days?) of debugging should I have
+used them earlier.
+
+Use shellcheck
+--------------
+[Shellcheck][1] is not only a good linter, but also a good source for learning
+about Bash. I have accustomed to not only run it before executing the code, but
+also carefully analyze what it is saying.
+
+I know GPLv3 is a problem for some enterprises. Shame, they are missing some
+really good tooling as a result of the internal policies.
+
+Strict mode
+-----------
+If a script changes state of the world (all of them?), it should start like
+this:
+
+    #!/bin/bash
+    set -euo pipefail
+
+If `#!/bin/bash` doesn't cut it, `#!/usr/bin/env bash` is the next best thing.
+
+Inherited environment variables
+-------------------------------
+
+Variables in Bash can originate from a few places:
+
+* Environment.
+* Global script variables.
+* Leaked variables from library functions.
+
+A few simple rules can keep them separate:
+
+* At the top of the script, re-declare all environment variables by adding a
+  prefix and lowercasing. Then unset the original ones. Unseting the original
+  ones will make sure the global ones are not accidently used somewhere deep
+  down to in an internal function.
+
+      declare _build_url=$BUILD_URL
+      declare _phab_id=$PHAB_ID
+      unset BUILD_URL PHAB_ID
+
+* Always pass arguments to functions, do not use globals (except in interrupt
+  handlers, more on that later). E.g.
+
+      _tag_build() {
+          local build_url=$1
+          do_stuff_with "$build_url"
+      }
+
+  ... and then call the functions with parameters:
+
+      _tag_build "$_build_url"
+
+Prefix the global variables with an underscore, so they are never leaked to
+internal functions. If an internal function is using a variable prefixed with
+an underscore, it is immediately clear it should be changed to be an argument.
+
+Naming conventions
+------------------
+
+* A command with an underscore is an internal function.
+* A command without an underscore is expected to be found in `$PATH`.
+* Variable without an underscore is `local`: after they are re-declared at the
+  top of the script, they are only allowed in functions.
+* Variables with underscores are allowed only in the top-level function.
+
+Adding time stamps to output
+----------------------------
+
+It is useful to have an idea how long a particular command took: was it 1
+second or 10 minutes? For scripts that run unattended, here is how to enrich
+them with information:
+
+* `set -x` somewhere early. This will print every line to standard error.
+* Wrap all the "interesting" commands as follows:
+
+      set -x
+      {
+        _interesting_stuff
+      } 2>&1 | ts '[%H:%M:%S]'
+
+  This will print the commands executed by `_interesting_stuff`, and their time
+  stamps.
+
+Trap to clean up the artifacts
+------------------------------
+If the script is changing external state, it is good to cleanup when done.
+However, if the script terminates midway, the cleanup still should often be
+executed. Traps offer a clean solution for it. It works to have a single
+cleanup function, and a global variable for each operation that needs to happen
+in cleanup.
+
+See below for the full example.
+
+Putting it all together
+-----------------------
+
+See an overkill example for printing something to a temporary file and removing
+it:
+
+`main`:
+
+    #!/bin/bash
+    set -euo pipefail
+    set -x
+
+    declare _here
+    _here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+    # shellcheck disable=SC1090
+    . "$_here/lib.sh"
+
+    declare _cleanup_tempfile
+    _cleanup() {
+        if [[ -f "$_cleanup_tempfile" ]]; then
+            rm "$_cleanup_tempfile"
+        fi
+    }
+
+    # Environment variables
+    declare _what_to_say=${WHAT_TO_SAY?variable missing}
+    unset WHAT_TO_SAY
+
+    # Internal variables
+
+    {
+        trap _cleanup EXIT SIGTERM SIGINT
+        _cleanup_tempfile=$(mktemp)
+
+        _do_work "$_cleanup_tempfile" "$_what_to_say"
+
+        _cleanup
+        trap - EXIT SIGTERM SIGINT
+    } 2>&1 | ts '[%H:%M:%S]'
+
+`lib.sh`:
+
+    #!/bin/bash
+    # shebang is used for shellcheck and syntax highlighting
+
+    _do_work() {
+        local tempfile=$1
+        local what_to_say=$2
+        echo "Computer says ${what_to_say}!" > "$tempfile"
+    }
+
+Conclusion
+----------
+
+I have presented a few techniques for increasing maintainbility of bash
+scripts. Although far from complete, these tips provide some safety with
+dealing with one of the most forgiving languages out there.
+
+[1]: https://www.shellcheck.net/
